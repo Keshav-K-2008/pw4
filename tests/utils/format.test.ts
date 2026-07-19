@@ -10,7 +10,8 @@ import {
   getSeverityColor,
   getStatusColor,
   truncate,
-  safeJsonParse
+  safeJsonParse,
+  generateId
 } from "@/lib/utils/format";
 
 describe("Format Utilities", () => {
@@ -93,14 +94,42 @@ describe("Format Utilities", () => {
       expect(getSeverityColor("critical")).toContain("text-red-400");
     });
 
+    it("should return high class style", () => {
+      expect(getSeverityColor("high")).toContain("text-orange-400");
+    });
+
+    it("should return medium class style", () => {
+      expect(getSeverityColor("medium")).toContain("text-yellow-400");
+    });
+
     it("should return low class style", () => {
       expect(getSeverityColor("low")).toContain("text-green-400");
+    });
+
+    it("should return default class style", () => {
+      expect(getSeverityColor("unknown")).toContain("text-slate-400");
     });
   });
 
   describe("getStatusColor", () => {
     it("should return active class style", () => {
       expect(getStatusColor("active")).toContain("text-green-400");
+    });
+
+    it("should return resolved class style", () => {
+      expect(getStatusColor("resolved")).toContain("text-blue-400");
+    });
+
+    it("should return pending class style", () => {
+      expect(getStatusColor("pending")).toContain("text-yellow-400");
+    });
+
+    it("should return critical class style", () => {
+      expect(getStatusColor("critical")).toContain("text-red-400");
+    });
+
+    it("should return default class style", () => {
+      expect(getStatusColor("unknown")).toContain("text-slate-400");
     });
   });
 
@@ -121,6 +150,15 @@ describe("Format Utilities", () => {
 
     it("should return fallback on invalid JSON", () => {
       expect(safeJsonParse("invalid-json", { b: 2 })).toEqual({ b: 2 });
+    });
+  });
+
+  describe("generateId", () => {
+    it("should generate a valid UUID format string", () => {
+      const id = generateId();
+      expect(id).toBeDefined();
+      expect(id).toHaveLength(36);
+      expect(id.split("-")).toHaveLength(5);
     });
   });
 });

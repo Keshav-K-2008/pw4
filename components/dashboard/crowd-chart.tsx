@@ -49,7 +49,7 @@ interface CustomTooltipProps {
   label?: string;
 }
 
-function CustomTooltip({ active, payload, label }: CustomTooltipProps) {
+export function CustomTooltip({ active, payload, label }: CustomTooltipProps) {
   if (!active || !payload?.length) return null;
   return (
     <div className="bg-slate-900/95 backdrop-blur-xl border border-white/10 rounded-xl p-3 shadow-2xl">

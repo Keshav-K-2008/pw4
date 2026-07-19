@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useForm } from "react-hook-form";
+import { useForm, useWatch } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
   AlertTriangle,
@@ -73,7 +73,7 @@ function ReportForm({ onClose }: { onClose: () => void }) {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-    watch,
+    control,
   } = useForm<IncidentFormData>({
     resolver: zodResolver(incidentSchema),
     defaultValues: {
@@ -82,8 +82,11 @@ function ReportForm({ onClose }: { onClose: () => void }) {
     },
   });
 
-  // eslint-disable-next-line react-hooks/incompatible-library
-  const watchSeverity = watch("severity");
+  const watchSeverity = useWatch({
+    control,
+    name: "severity",
+    defaultValue: "medium",
+  });
 
   const onSubmit = async (data: IncidentFormData) => {
     setIsGenerating(true);
