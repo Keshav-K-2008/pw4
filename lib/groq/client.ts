@@ -1,4 +1,4 @@
-const GROQ_API_KEY = process.env.GROQ_API_KEY || "placeholder-key";
+const GROQ_API_KEY = process.env.GROQ_API_KEY || "";
 
 // Llama 3.3 70B is highly capable and versatile for chat, JSON, and text generation.
 const DEFAULT_MODEL = "llama-3.3-70b-versatile";

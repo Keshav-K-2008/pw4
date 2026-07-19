@@ -14,11 +14,8 @@ import {
   PolarGrid,
   PolarAngleAxis,
   Radar,
-  Cell,
-  PieChart,
-  Pie,
 } from "recharts";
-import { Users, Activity, Brain, TrendingUp, AlertTriangle, RefreshCw, Cpu } from "lucide-react";
+import { Activity, Brain, TrendingUp, Cpu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
@@ -147,7 +144,7 @@ export function CrowdContent() {
             <YAxis stroke="rgba(148,163,184,0.5)" tick={{ fill: "rgba(148,163,184,0.7)", fontSize: 11 }} tickFormatter={(v) => `${(v / 1000).toFixed(0)}k`} />
             <Tooltip
               contentStyle={{ background: "rgba(10,14,26,0.95)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "12px", color: "white" }}
-              formatter={(v: any) => [v?.toLocaleString(), ""]}
+              formatter={(v: number | string) => [v?.toLocaleString(), ""]}
             />
             <Area type="monotone" dataKey="actual" stroke="#3b82f6" strokeWidth={2} fill="url(#actualGrad)" name="Actual" connectNulls={false} />
             <Area type="monotone" dataKey="predicted" stroke="#8b5cf6" strokeWidth={2} fill="url(#predGrad)" strokeDasharray="5 5" name="Predicted" />

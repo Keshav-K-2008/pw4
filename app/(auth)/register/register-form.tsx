@@ -57,7 +57,7 @@ export function RegisterForm() {
 
     if (authData.user) {
       // Create profile
-      await (supabase as any).from("profiles").upsert({
+      await supabase.from("profiles").upsert({
         id: authData.user.id,
         email: data.email,
         full_name: data.full_name,

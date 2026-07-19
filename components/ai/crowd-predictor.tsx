@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Brain, Cpu, TrendingUp, AlertTriangle, CheckCircle } from "lucide-react";
+import { Brain, Cpu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 

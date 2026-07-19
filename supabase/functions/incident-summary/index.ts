@@ -12,7 +12,7 @@ serve(async (req) => {
   }
 
   try {
-    const { type, severity, description } = await req.json()
+    const { type, severity } = await req.json()
 
     // Determine priority score and actions
     let priorityScore = 5

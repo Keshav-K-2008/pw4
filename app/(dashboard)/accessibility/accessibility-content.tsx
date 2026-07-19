@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Accessibility, Eye, Ear, Volume2, MapPin, CheckCircle, AlertTriangle } from "lucide-react";
+import { Accessibility, Eye, Ear, Volume2, MapPin } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
 const ACCESSIBLE_ROUTES = [
@@ -77,7 +77,7 @@ export function AccessibilityContent() {
       <div className="glass-card p-6">
         <h3 className="text-white font-semibold mb-4">Assistance Requests</h3>
         <div className="space-y-3">
-          {NEEDS_REQUESTS.map((req, i) => (
+          {NEEDS_REQUESTS.map((req) => (
             <div key={req.id} className="flex items-center gap-4 p-3 rounded-xl bg-white/5 border border-white/5">
               <div className="w-8 h-8 rounded-lg bg-purple-500/10 border border-purple-500/20 flex items-center justify-center flex-shrink-0">
                 <Accessibility className="w-4 h-4 text-purple-400" />

@@ -12,7 +12,7 @@ serve(async (req) => {
   }
 
   try {
-    const { title, body, userIds, type } = await req.json()
+    const { title, userIds } = await req.json()
 
     // Mock notification dispatching
     console.log(`Sending notification "${title}" to users:`, userIds)

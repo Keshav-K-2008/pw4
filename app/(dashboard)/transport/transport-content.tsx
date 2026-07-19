@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Bus, Train, Car, Footprints, Clock, Users, TrendingDown, TrendingUp, Cpu } from "lucide-react";
+import { Bus, Train, Car, Footprints, Clock, Users, Cpu } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 

@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import {
-  Settings, Users, Database, Server, Shield, Activity,
+  Settings, Users, Server, Shield, Activity,
   CheckCircle, AlertTriangle, Globe, Cpu, Key, Lock, Trash2
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";

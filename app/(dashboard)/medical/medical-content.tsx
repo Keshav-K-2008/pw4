@@ -85,7 +85,7 @@ export function MedicalContent() {
           Nearby Hospitals
         </h3>
         <div className="space-y-3">
-          {HOSPITALS.map((h, i) => (
+          {HOSPITALS.map((h) => (
             <div key={h.name} className="flex items-center gap-4 p-3 rounded-xl bg-white/5 border border-white/5">
               <div className="w-8 h-8 rounded-lg bg-green-500/10 border border-green-500/20 flex items-center justify-center flex-shrink-0">
                 <Heart className="w-4 h-4 text-green-400" />

@@ -1,9 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { AlertTriangle, Clock, MapPin, ChevronRight, Activity } from "lucide-react";
+import { Clock, MapPin, ChevronRight, Activity } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { formatTimeAgo, getSeverityColor } from "@/lib/utils/format";
+import { formatTimeAgo } from "@/lib/utils/format";
 import { Incident } from "@/types";
 
 const DEMO_INCIDENTS: Incident[] = [

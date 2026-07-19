@@ -28,7 +28,7 @@ import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { DEMO_INCIDENTS } from "@/components/dashboard/incident-feed";
 import { toast } from "sonner";
-import { formatTimeAgo, getSeverityColor } from "@/lib/utils/format";
+import { formatTimeAgo } from "@/lib/utils/format";
 
 const INCIDENT_TYPES = [
   { value: "medical_emergency", label: "🏥 Medical Emergency" },
@@ -82,7 +82,7 @@ function ReportForm({ onClose }: { onClose: () => void }) {
     },
   });
 
-  const watchType = watch("type");
+  // eslint-disable-next-line react-hooks/incompatible-library
   const watchSeverity = watch("severity");
 
   const onSubmit = async (data: IncidentFormData) => {

@@ -4,19 +4,19 @@ import { createServerClient } from "@supabase/ssr";
 const PUBLIC_ROUTES = ["/", "/login", "/register", "/forgot-password", "/auth/callback"];
 const AUTH_ROUTES = ["/login", "/register", "/forgot-password"];
 
-const ROLE_ROUTES: Record<string, string[]> = {
-  admin: ["/admin"],
-  operations: ["/admin", "/analytics"],
-  security: ["/security"],
-  medical: ["/medical"],
-  volunteer: ["/volunteers"],
-};
+// const ROLE_ROUTES: Record<string, string[]> = {
+//   admin: ["/admin"],
+//   operations: ["/admin", "/analytics"],
+//   security: ["/security"],
+//   medical: ["/medical"],
+//   volunteer: ["/volunteers"],
+// };
 
 export async function updateSession(request: NextRequest) {
   let supabaseResponse = NextResponse.next({ request });
 
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL || "https://placeholder-url.supabase.co";
-  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "placeholder-anon-key";
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
+  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "";
 
   const supabase = createServerClient(
     url,

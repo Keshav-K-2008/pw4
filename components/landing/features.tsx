@@ -3,11 +3,9 @@
 import { motion } from "framer-motion";
 import {
   Users,
-  Navigation,
   Accessibility as AccessIcon,
   AlertTriangle,
   Cpu,
-  ShieldAlert,
   Map,
   Languages,
 } from "lucide-react";

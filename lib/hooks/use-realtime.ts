@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { useNotificationStore } from "@/lib/store/use-notification-store";
 import { useStadiumStore } from "@/lib/store/use-stadium-store";

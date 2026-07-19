@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Zap, Shield, Globe, Cpu, ArrowRight } from "lucide-react";
+import { Zap, Cpu, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function Hero() {

@@ -12,7 +12,7 @@ serve(async (req) => {
   }
 
   try {
-    const { message, history } = await req.json()
+    const { message } = await req.json()
     const groqApiKey = Deno.env.get('GROQ_API_KEY')
 
     if (!groqApiKey) {

@@ -1,9 +1,8 @@
 "use client";
 
 import { useRef, useEffect, useState } from "react";
-import { Bot, Send, Mic, MicOff, Volume2, VolumeX, Sparkles, Clock, MapPin } from "lucide-react";
+import { Send, Sparkles } from "lucide-react";
 import { useAiChat } from "@/lib/hooks/use-ai-chat";
-import { Button } from "@/components/ui/button";
 import { formatTimeAgo } from "@/lib/utils/format";
 
 interface ChatInterfaceProps {

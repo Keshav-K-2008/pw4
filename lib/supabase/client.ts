@@ -6,8 +6,8 @@ let client: SupabaseClient<Database> | null = null;
 
 export function createClient() {
   if (!client) {
-    const url = process.env.NEXT_PUBLIC_SUPABASE_URL || "https://placeholder-url.supabase.co";
-    const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "placeholder-anon-key";
+    const url = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
+    const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "";
     client = createBrowserClient<Database>(url, key);
   }
   return client;

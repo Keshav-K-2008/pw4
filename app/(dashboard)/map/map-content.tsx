@@ -5,16 +5,12 @@ import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 import {
   Map,
-  Layers,
   Thermometer,
   AlertTriangle,
   Navigation,
-  ZoomIn,
-  ZoomOut,
   Info,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 
 // Dynamic import to avoid SSR issues with Leaflet
 const StadiumMap = dynamic(
@@ -46,7 +42,6 @@ export function MapContent() {
   const [showHeatmap, setShowHeatmap] = useState(true);
   const [showIncidents, setShowIncidents] = useState(true);
   const [showRoutes, setShowRoutes] = useState(false);
-  const [selectedLayer, setSelectedLayer] = useState<string | null>(null);
 
   return (
     <div className="h-[calc(100vh-5rem)] flex flex-col gap-4">

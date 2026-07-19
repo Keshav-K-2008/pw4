@@ -43,7 +43,7 @@ export function useCreateIncident() {
       });
       const aiData = await aiResponse.json();
 
-      const { data, error } = await (supabase as any)
+      const { data, error } = await supabase
         .from("incidents")
         .insert({
           ...incident,
@@ -76,7 +76,7 @@ export function useUpdateIncident() {
 
   return useMutation({
     mutationFn: async ({ id, ...updates }: Partial<Incident> & { id: string }) => {
-      const { data, error } = await (supabase as any)
+      const { data, error } = await supabase
         .from("incidents")
         .update(updates)
         .eq("id", id)

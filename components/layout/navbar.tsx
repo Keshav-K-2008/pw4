@@ -11,7 +11,6 @@ import {
   User,
   Settings,
   LogOut,
-  Moon,
   Globe,
   Wifi,
   AlertCircle,
@@ -20,7 +19,6 @@ import { createClient } from "@/lib/supabase/client";
 import { useAuthStore } from "@/lib/store/use-auth-store";
 import { useNotificationStore } from "@/lib/store/use-notification-store";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
 import { formatTimeAgo } from "@/lib/utils/format";
 
@@ -52,6 +50,7 @@ export function Navbar() {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search gates, sections, staff..."
+            aria-label="Search gates, sections, and staff"
             className="w-full h-9 pl-9 pr-3 rounded-xl bg-white/5 border border-white/10 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500/40 focus:border-blue-500/40 transition-all"
           />
         </div>
@@ -71,6 +70,7 @@ export function Navbar() {
             variant="ghost"
             size="icon"
             className="relative"
+            aria-label="Notifications dropdown"
             onClick={() => { setShowNotifs(!showNotifs); setShowProfile(false); }}
           >
             <Bell className="w-4.5 h-4.5 text-slate-400" />
@@ -143,6 +143,7 @@ export function Navbar() {
         <div className="relative">
           <button
             onClick={() => { setShowProfile(!showProfile); setShowNotifs(false); }}
+            aria-label="User profile dropdown"
             className="flex items-center gap-2 px-2 py-1.5 rounded-xl hover:bg-white/5 transition-all"
           >
             <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-sm font-semibold">

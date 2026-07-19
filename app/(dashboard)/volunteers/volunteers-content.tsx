@@ -1,9 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Users, CheckCircle, Clock, Star, MapPin, Phone, Zap } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import { Progress } from "@/components/ui/progress";
+import { Users, CheckCircle, Clock, Star, MapPin, Zap } from "lucide-react";
 
 const VOLUNTEERS = [
   { id: "V001", name: "Maria Santos", zone: "South Entry", status: "on_task", task: "Gate crowd control", score: 96, completed: 14, shift: "08:00 - 18:00", phone: "+1-555-0101", skills: ["Crowd Control", "First Aid", "Spanish"] },

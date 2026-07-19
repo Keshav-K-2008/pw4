@@ -35,6 +35,22 @@ const LANGUAGES = [
   "Arabic", "Chinese", "Japanese", "Korean", "Hindi",
 ];
 
+interface SpeechRecognitionEvent {
+  results: Array<Array<{ transcript: string }>>;
+}
+
+interface SpeechRecognitionInstance {
+  stop: () => void;
+  continuous: boolean;
+  lang: string;
+  onresult: (event: SpeechRecognitionEvent) => void;
+  onerror: (event: unknown) => void;
+  onend: () => void;
+  start: () => void;
+}
+
+type SpeechRecognitionConstructor = new () => SpeechRecognitionInstance;
+
 export function AiAssistantContent() {
   const { messages, sendMessage, isLoading, clearMessages } = useAiChat();
   const [input, setInput] = useState("");
@@ -43,7 +59,7 @@ export function AiAssistantContent() {
   const [selectedLanguage, setSelectedLanguage] = useState("English");
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
-  const recognitionRef = useRef<any>(null);
+  const recognitionRef = useRef<SpeechRecognitionInstance | null>(null);
 
   // Auto scroll
   useEffect(() => {
@@ -71,7 +87,13 @@ export function AiAssistantContent() {
 
   const toggleVoice = () => {
     if (typeof window === "undefined") return;
-    const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+    
+    const win = window as unknown as {
+      SpeechRecognition?: SpeechRecognitionConstructor;
+      webkitSpeechRecognition?: SpeechRecognitionConstructor;
+    };
+    const SpeechRecognition = win.SpeechRecognition || win.webkitSpeechRecognition;
+    
     if (!SpeechRecognition) {
       alert("Speech recognition not supported in this browser");
       return;
@@ -89,7 +111,7 @@ export function AiAssistantContent() {
     recognition.lang = selectedLanguage === "Spanish" ? "es-ES" :
                        selectedLanguage === "French" ? "fr-FR" :
                        selectedLanguage === "German" ? "de-DE" : "en-US";
-    recognition.onresult = (event: any) => {
+    recognition.onresult = (event: SpeechRecognitionEvent) => {
       const transcript = event.results[0][0].transcript;
       setInput(transcript);
       setIsVoiceActive(false);

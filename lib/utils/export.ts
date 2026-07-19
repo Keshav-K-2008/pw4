@@ -58,7 +58,15 @@ export function exportToPDF(data: Record<string, unknown>[], title: string, file
   }
 
   // Footer
-  const pageCount = (doc as any).internal.getNumberOfPages ? (doc as any).internal.getNumberOfPages() : (doc as any).getNumberOfPages();
+  const pdfDoc = doc as unknown as {
+    getNumberOfPages?: () => number;
+    internal: {
+      getNumberOfPages?: () => number;
+    };
+  };
+  const pageCount = pdfDoc.internal.getNumberOfPages 
+    ? pdfDoc.internal.getNumberOfPages() 
+    : (pdfDoc.getNumberOfPages ? pdfDoc.getNumberOfPages() : 1);
   for (let i = 1; i <= pageCount; i++) {
     doc.setPage(i);
     doc.setFontSize(8);

@@ -1,8 +1,4 @@
 import type { Metadata } from "next";
-import { motion } from "framer-motion";
-import { StatsCards } from "@/components/dashboard/stats-cards";
-import { CrowdChart, EntryExitChart, TransportChart } from "@/components/dashboard/crowd-chart";
-import { IncidentFeed } from "@/components/dashboard/incident-feed";
 import { DashboardContent } from "./dashboard-content";
 
 export const metadata: Metadata = {

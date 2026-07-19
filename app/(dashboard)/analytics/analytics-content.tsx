@@ -2,10 +2,10 @@
 
 import { motion } from "framer-motion";
 import {
-  AreaChart, Area, BarChart, Bar, XAxis, YAxis, CartesianGrid,
+  BarChart, Bar, XAxis, YAxis, CartesianGrid,
   Tooltip, ResponsiveContainer, PieChart, Pie, Cell, Legend
 } from "recharts";
-import { BarChart2, TrendingUp, Star, Globe } from "lucide-react";
+import { BarChart2, Star, Globe } from "lucide-react";
 
 const REVENUE_DATA = [
   { month: "Jan", food: 245000, merchandise: 89000, parking: 142000 },
@@ -69,7 +69,7 @@ export function AnalyticsContent() {
             <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" />
             <XAxis dataKey="month" stroke="rgba(148,163,184,0.5)" tick={{ fill: "rgba(148,163,184,0.7)", fontSize: 11 }} />
             <YAxis stroke="rgba(148,163,184,0.5)" tick={{ fill: "rgba(148,163,184,0.7)", fontSize: 11 }} tickFormatter={(v) => `$${(v / 1000).toFixed(0)}k`} />
-            <Tooltip contentStyle={{ background: "rgba(10,14,26,0.95)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "12px", color: "white" }} formatter={(v: any) => [`$${Number(v).toLocaleString()}`, ""]} />
+            <Tooltip contentStyle={{ background: "rgba(10,14,26,0.95)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "12px", color: "white" }} formatter={(v: number | string) => [`$${Number(v).toLocaleString()}`, ""]} />
             <Legend wrapperStyle={{ color: "rgba(148,163,184,0.8)", fontSize: "12px" }} />
             <Bar dataKey="food" name="Food & Beverage" fill="#3b82f6" radius={[4, 4, 0, 0]} />
             <Bar dataKey="merchandise" name="Merchandise" fill="#8b5cf6" radius={[4, 4, 0, 0]} />

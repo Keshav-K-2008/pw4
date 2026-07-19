@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Zap, ShieldAlert, ArrowRight, User } from "lucide-react";
+import { Zap, User } from "lucide-react";
 import { Hero } from "@/components/landing/hero";
 import { Features } from "@/components/landing/features";
 import { Stats } from "@/components/landing/stats";
